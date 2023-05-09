@@ -1,4 +1,15 @@
+using E_mail_Management_Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//Criando a connectionString
+var conectionString = builder.Configuration.GetConnectionString("DataBase");
+
+builder.Services.AddDbContext<Email_Management_Context>(options =>
+    options.UseSqlServer(conectionString));
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

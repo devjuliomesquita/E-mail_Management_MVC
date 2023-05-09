@@ -5,6 +5,18 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>E_mail_Management_MVC</RootNamespace>
+    <UserSecretsId>e5dc7f30-b291-4a3e-ad8a-d503990d1502</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\E-mail_Management_Infrastructure\E-mail_Management_Infrastructure.csproj" />
+  </ItemGroup>
 
 </Project>
