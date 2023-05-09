@@ -1,5 +1,6 @@
 ﻿using E_mail_Management_Domain.Interfaces;
 using E_mail_Management_Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,10 @@ namespace E_mail_Management_Infrastructure.Repositories
 {
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
     {
-        protected Email_Management_Context _context;
-        public bool _saveChangues = true;
-        public RepositoryBase( bool saveChangues = true)
+        private readonly Email_Management_Context _context;
+        public RepositoryBase(Email_Management_Context context)
         {
-            _saveChangues = saveChangues;
-            _context = new Email_Management_Context();
+            _context = context;
         }
         public TEntity Add(TEntity entity)
         {
@@ -23,5 +22,7 @@ namespace E_mail_Management_Infrastructure.Repositories
             _context.SaveChanges();
             return entity;
         }
+                
     }
 }
+

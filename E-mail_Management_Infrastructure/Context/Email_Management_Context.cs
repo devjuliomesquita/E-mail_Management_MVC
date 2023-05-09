@@ -11,9 +11,6 @@ namespace E_mail_Management_Infrastructure.Context
 {
     public class Email_Management_Context : DbContext
     {
-        public Email_Management_Context()
-        {
-        }
         public Email_Management_Context(DbContextOptions<Email_Management_Context> options) : base(options)
         {
         }

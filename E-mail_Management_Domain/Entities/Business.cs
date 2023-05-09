@@ -8,15 +8,15 @@ namespace E_mail_Management_Domain.Entities
 {
     public class Business
     {
-        public Business(string? businessName)
-        {
-            BusinessName = businessName;
+        //public Business(string? businessName)
+        //{
+        //    BusinessName = businessName;
 
-            BusinessNNI = false;
-            Active = true;
-            CreatedAt = DateTime.Now;
-            Emails = new List<BusinessEmail>();
-        }
+        //    BusinessNNI = false;
+        //    Active = true;
+        //    CreatedAt = DateTime.Now;
+        //    Emails = new List<BusinessEmail>();
+        //}
 
         public int BusinessId { get; private set; }
         public string? BusinessName { get; private set; }

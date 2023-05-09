@@ -1,4 +1,7 @@
+using E_mail_Management_Domain.Interfaces;
 using E_mail_Management_Infrastructure.Context;
+using E_mail_Management_Infrastructure.Repositories;
+using E_mail_Management_MVC.AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +12,11 @@ var conectionString = builder.Configuration.GetConnectionString("DataBase");
 builder.Services.AddDbContext<Email_Management_Context>(options =>
     options.UseSqlServer(conectionString));
 
+//Injeção de dependência dos repositorios
+builder.Services.AddScoped<IBusinessRepository, BusinessRepository>();
 
+//AutoMapper - todas as confg
+builder.Services.AddAutoMapper(typeof(Email_Management_Mapper));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
