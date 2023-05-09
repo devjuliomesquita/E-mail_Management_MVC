@@ -1,0 +1,37 @@
+﻿<div class="container-fluid mb-4">
+    <a class="btn btn-outline-secondary mb-1" asp-action="Index" asp-controller="Business" asp-area=""><i class="fa fa-arrow-left"></i> Lista de Parceiros </a>
+    <!-- Page Heading -->
+    <div class="card ">
+        <div class="card-header bg-secondary">
+            <h4 class="card-title text-white">Criar Parceiro</h4>
+        </div>
+        <div class="card-body ">
+            @*<input type="hidden" asp-for="Id" />*@
+            @*<input type="hidden" asp-for="UserName" />*@
+            <div class="mb-2">
+                <label>Parceiro</label>
+                <input type="text" @*asp-for=""*@ class="form-control" />
+                <span @*asp-validation-for=""*@ class="text-danger"></span>
+            </div>
+            <div class="mb-2">
+                <label>Ativo?</label>
+                <input type="checkbox" @*asp-for=""*@ />
+            </div>
+            <div class="mb-2">
+                <label>NNI?</label>
+                <input type="checkbox" @*asp-for="*@" />
+            </div>
+
+
+            <div class="mb-2">
+                <button type="submit" class="btn btn-secondary">Add Parceiro</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</div>

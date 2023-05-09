@@ -9,6 +9,10 @@ namespace E_mail_Management_MVC.Controllers
             return View();
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
         public IActionResult Details()
         {
             return View();

@@ -3,7 +3,7 @@
 }
 <!-- Begin Page Content -->
 <div class="container-fluid mb-4">
-    <a class="btn btn-outline-secondary mb-1" asp-action="Details" asp-controller="Business" asp-area=""><i class="fa fa-user-plus"></i> Add Parceiro</a>
+    <a class="btn btn-outline-secondary mb-1" asp-action="Create" asp-controller="Business" asp-area=""><i class="fa fa-user-plus"></i> Add Parceiro</a>
     <!-- Page Heading -->
     <div class="card">
         <div class="card-header bg-secondary">
@@ -22,15 +22,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @*@foreach ()
+                    @for (var i = 1; i<=2; i++)
                     {
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>@i</td>
+                            <td>Júlio</td>
+                            <td>Ativo</td>
+                            <td>12/11/1994</td>
+                            <td>Ativo</td>
                             <td>
+                                <a class="btn btn-outline-dark m-1"
+                               asp-action="Details"
+                               asp-controller="Business"
+                               asp-route-id="">
+                                    <i class="fa fa-key"></i>
+                                </a>
                                 <a class="btn btn-outline-dark m-1"
                                asp-action=""
                                asp-controller=""
@@ -45,7 +51,7 @@
                                 </a>
                             </td>
                         </tr>
-                    }*@
+                    }
                 </tbody>
             </table>
 
