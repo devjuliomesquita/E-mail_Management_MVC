@@ -1,4 +1,4 @@
-﻿namespace E_mail_Management_MVC.Models
+﻿namespace E_mail_Management_MVC.Models.BusinessEmail
 {
     public class BusinessEmailViewModel
     {

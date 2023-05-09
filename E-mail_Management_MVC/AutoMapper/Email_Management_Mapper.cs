@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using E_mail_Management_Domain.Entities;
-using E_mail_Management_MVC.Models;
+using E_mail_Management_MVC.Models.Business;
 
 namespace E_mail_Management_MVC.AutoMapper
 {
@@ -8,8 +8,11 @@ namespace E_mail_Management_MVC.AutoMapper
     {
         public Email_Management_Mapper() 
         {
-            //Modelos de Criação
+            //Modelos de Criação - Business
             CreateMap<BusinessInputModel, Business>();
+
+            //Modelos de Retorno - Business
+            CreateMap<Business, BusinessViewModel>();
         }
 
     }

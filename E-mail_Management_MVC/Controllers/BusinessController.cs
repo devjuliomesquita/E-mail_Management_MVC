@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using E_mail_Management_Domain.Entities;
 using E_mail_Management_Domain.Interfaces;
-using E_mail_Management_MVC.Models;
+using E_mail_Management_MVC.Models.Business;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_mail_Management_MVC.Controllers
@@ -17,7 +17,17 @@ namespace E_mail_Management_MVC.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var business = _Businessrepository.GetAll();
+            var businessVM = business.Select(b => new BusinessViewModel
+            {
+                BusinessId = b.BusinessId,
+                BusinessName = b.BusinessName,
+                BusinessNNI = b.BusinessNNI,
+                Active = b.Active,
+                CreatedAt = b.CreatedAt,
+                CanceledAt  = b.CanceledAt
+            }).ToList();
+            return View(businessVM);
         }
 
         public IActionResult Create()

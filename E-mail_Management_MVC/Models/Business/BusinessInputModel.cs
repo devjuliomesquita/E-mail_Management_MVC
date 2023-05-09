@@ -1,7 +1,8 @@
 ﻿using E_mail_Management_Domain.Entities;
+using E_mail_Management_MVC.Models.BusinessEmail;
 using System.ComponentModel.DataAnnotations;
 
-namespace E_mail_Management_MVC.Models
+namespace E_mail_Management_MVC.Models.Business
 {
     public class BusinessInputModel
     {

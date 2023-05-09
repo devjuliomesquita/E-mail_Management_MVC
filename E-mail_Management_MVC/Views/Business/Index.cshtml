@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<E_mail_Management_MVC.Models.Business.BusinessViewModel>
+@{
     ViewData["Title"] = "Index";
 }
 <!-- Begin Page Content -->
@@ -22,31 +23,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for (var i = 1; i<=2; i++)
+                    @foreach (var parc in Model)
                     {
                         <tr>
-                            <td>@i</td>
-                            <td>Júlio</td>
-                            <td>Ativo</td>
-                            <td>12/11/1994</td>
-                            <td>Ativo</td>
+                            <td>@parc.BusinessId</td>
+                            <td>@parc.BusinessName</td>
+                            <td>@parc.BusinessNNI</td>
+                            <td>@parc.CreatedAt</td>
+                            <td>@parc.Active</td>
                             <td>
                                 <a class="btn btn-outline-dark m-1"
                                asp-action="Details"
                                asp-controller="Business"
-                               asp-route-id="">
+                               asp-route-id="@parc.BusinessId">
                                     <i class="fa fa-key"></i>
                                 </a>
                                 <a class="btn btn-outline-dark m-1"
                                asp-action=""
                                asp-controller=""
-                               asp-route-id="">
+                               asp-route-id="@parc.BusinessId">
                                     <i class="fa fa-key"></i>
                                 </a>
                                 <a class="btn btn-danger m-1"
                                asp-action=""
                                asp-controller=""
-                               asp-route-id="">
+                               asp-route-id="@parc.BusinessId">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>
