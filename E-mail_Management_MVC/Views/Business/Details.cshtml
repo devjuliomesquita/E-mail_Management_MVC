@@ -1,4 +1,8 @@
-﻿<div class="container-fluid mb-4">
+﻿@model E_mail_Management_MVC.Models.Business.BusinessViewModel
+@{
+    ViewData["Title"] = "Details Business";
+}
+<div class="container-fluid mb-4">
     <a class="btn btn-outline-secondary mb-1" asp-action="Index" asp-controller="Business" asp-area=""><i class="fa fa-arrow-left"></i> Lista de Parceiros </a>
     <!-- Page Heading -->
     <div class="card ">
@@ -6,27 +10,28 @@
             <h4 class="card-title text-white">Editar Parceiro</h4>
         </div>
         <div class="card-body ">
-            @*<input type="hidden" asp-for="Id" />*@
-            @*<input type="hidden" asp-for="UserName" />*@
-            <div class="mb-2">
-                <label>Parceiro</label>
-                <input type="text" @*asp-for=""*@ class="form-control" />
-                <span @*asp-validation-for=""*@ class="text-danger"></span>
-            </div>
-            <div class="mb-2">
-                <label>Ativo?</label>
-                <input type="checkbox" @*asp-for=""*@ />
-            </div>
-            <div class="mb-2">
-                <label>NNI?</label>
-                <input type="checkbox" @*asp-for="*@" />
-            </div>
+            
+            <form asp-controller="Business" asp-action="Details">
+                <input type="hidden" asp-for="BusinessId" />
+                <div class="mb-2">
+                    <label>Parceiro</label>
+                    <input type="text" asp-for="BusinessName" class="form-control" />
+                    <span asp-validation-for="BusinessName" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    <label>Ativo?</label>
+                    <input type="checkbox" asp-for="Active" />
+                </div>
+                <div class="mb-2">
+                    <label>NNI?</label>
+                    <input type="checkbox" asp-for="BusinessNNI" />
+                </div>
 
 
-            <div class="mb-2">
-                <button type="submit" class="btn btn-secondary">Salvar Alterações</button>
-            </div>
-
+                <div class="mb-2">
+                    <button type="submit" class="btn btn-secondary">Salvar Alterações</button>
+                </div>
+            </form>
         </div>
 
 

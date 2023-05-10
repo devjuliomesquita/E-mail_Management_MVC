@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using E_mail_Management_Domain.Entities;
 using E_mail_Management_Domain.Interfaces;
+using E_mail_Management_Infrastructure.Context;
 using E_mail_Management_MVC.Models.Business;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,15 +19,7 @@ namespace E_mail_Management_MVC.Controllers
         public IActionResult Index()
         {
             var business = _Businessrepository.GetAll();
-            var businessVM = business.Select(b => new BusinessViewModel
-            {
-                BusinessId = b.BusinessId,
-                BusinessName = b.BusinessName,
-                BusinessNNI = b.BusinessNNI,
-                Active = b.Active,
-                CreatedAt = b.CreatedAt,
-                CanceledAt  = b.CanceledAt
-            }).ToList();
+            List<BusinessViewModel> businessVM = _mapper.Map<List<BusinessViewModel>>(business);
             return View(businessVM);
         }
 
@@ -43,9 +36,21 @@ namespace E_mail_Management_MVC.Controllers
             _Businessrepository.Add(model);
             return RedirectToAction("Index");
         }
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
-            return View();
+            var business = _Businessrepository.GetById(id);
+            if (business == null) { return RedirectToAction("Index"); }
+            var model = _mapper.Map<Business, BusinessViewModel>(business);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Details(BusinessViewModel businessModel)
+        {
+            //VERIFICAR SE O MÓDEL ESTÁ VÁLIDO
+            if (!ModelState.IsValid) { return View(businessModel); }
+            var model = _mapper.Map<BusinessViewModel, Business>(businessModel);
+            _Businessrepository.Update(model);
+            return RedirectToAction("Index");
         }
     }
 }

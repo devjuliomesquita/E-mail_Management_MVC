@@ -10,6 +10,7 @@ namespace E_mail_Management_MVC.AutoMapper
         {
             //Modelos de Criação - Business
             CreateMap<BusinessInputModel, Business>();
+            CreateMap<BusinessViewModel, Business>();
 
             //Modelos de Retorno - Business
             CreateMap<Business, BusinessViewModel>();
